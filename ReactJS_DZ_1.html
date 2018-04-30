@@ -9,15 +9,18 @@
         // 1. Написать функцию loop, которая будет принимать параметры: times (значение по умолчанию = 0), callback (значение по умолчанию = null) и будет в цикле (times раз), вызывать функцию callback. Если функция не передана, то цикл не должен отрабатывать ни разу. Покажите применение этой функции.
         {
             let times = 10;
-            let callback = (i) => console.log('test' + i);//null
+            let callback = null;
+            // let callback = (i) => console.log('test' + i);
 
             let loop = (times, callback) =>
             {
-                if (callback)
+                if (typeof callback === 'function')
                 {
                     for (let i = 1; i <= times; i++) {
                     callback(i);
                     }
+                } else {
+                    console.log('callback not a function');
                 }
             };
             loop(times, callback);
