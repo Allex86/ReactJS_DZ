@@ -40,12 +40,12 @@
                         let h = parseInt(prompt("Укажите высоту треугольника:"));
                         let s = 1/2*a*h;
 
+                        alert('Площадь: '+s+'\n Фигура: треугольник \n Входные данные: \n Основание: ' + a + '\n Высота: ' + h);
+
                         figureObj.area = s;
                         figureObj.figure = 'треугольник';
                         figureObj.input = [a, h];
-
-                        alert('Площадь: '+s+'\n Фигура: треугольник \n Входные данные: \n Основание: ' + a + '\n Высота: ' + h);
-                        console.log(figureObj);
+                        return figureObj;
                         }
                         break;
                     case 2:
@@ -59,8 +59,7 @@
                         figureObj.area = s;
                         figureObj.figure = 'прямоугольник';
                         figureObj.input = [a, b];
-
-                        console.log(figureObj);
+                        return figureObj;
                         }
                         break;
                     case 3:
@@ -73,8 +72,7 @@
                         figureObj.area = s;
                         figureObj.figure = 'круг';
                         figureObj.input = [r];
-
-                        console.log(figureObj);
+                        return figureObj;
                         }                    
                         break;
                     default:
@@ -87,7 +85,7 @@
                 }
             }
 
-            //calculateArea();
+            // console.log(calculateArea());
         }
         
         /** 3. Необходимо написать иерархию классов вида:
@@ -147,6 +145,17 @@
                     super(name, age, dateOfBirth, salary, department);
                     this.manager = String(manager);
                 }
+
+                changeManager(manager)
+                {
+                    this.manager = String(manager);
+                }
+
+                displayInfo()
+                {
+                    super.displayInfo();
+                    console.log('manager:', this.manager);
+                }
             }
 
             class Manager extends Employee
@@ -156,15 +165,54 @@
                     super(name, age, dateOfBirth, salary, department);
                     this.developers = developers;
                 }
+
+                addDeveloper(developer)
+                {
+                    this.developers.push(developer);
+                }
+
+                removeDeveloper(developer)
+                {
+                    let dev_arr = this.developers.filter( function(dvlpr){ return dvlpr != developer; } );
+                    this.developers = dev_arr;
+                }
+
+                displayInfo()
+                {
+                    super.displayInfo();
+                    console.log('developers:', this.developers);
+                }
             }
 
-            let person1 = new Employee('Kate', 28, "10.01.1995", 100000, 'разработка');
+            /* let person1 = new Employee('Kate', 28, "10.01.1995", 100000, 'разработка');
             console.log(person1);
             person1.displayInfo();
+            */
 
-             let person2 = new Manager('Вася', 28, "15.11.1985", 50000, 'управление персоналом', ['Вова', 'Юра', 'Петя']);
+            let person2 = new Manager('Вася', 28, "15.11.1985", 50000, 'управление персоналом', ['Вова', 'Юра', 'Петя']);
+            console.log('new Manager');
             console.log(person2);
             person2.displayInfo();
+            
+            person2.addDeveloper('Коля');
+            console.log('addDeveloper');
+            console.log(person2);
+            person2.displayInfo();
+
+            person2.removeDeveloper('Юра');
+            console.log('removeDeveloper');
+            console.log(person2);
+            person2.displayInfo();
+
+            let dev1 = new Developer('Kate', 28, "10.01.1995", 100000, 'разработка', 'Вася');
+            console.log(dev1);
+            dev1.displayInfo();
+            dev1.changeManager('Другой Вася');
+            console.log('changeManager');
+            console.log(dev1);
+            dev1.displayInfo();
+            
+
         }
 
         // 4. *При помощи генератора написать функцию-анкету, которая запрашивает у пользователя на ввод параметры и передает их в генератор. В конце, когда генератор завершается, он должен вернуть все введенные входные параметры в виде объекта. Этот объект нужно вывести в консоли.
