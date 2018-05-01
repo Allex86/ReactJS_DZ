@@ -148,7 +148,11 @@
 
                 changeManager(manager)
                 {
-                    this.manager = String(manager);
+                    if (manager instanceof Manager) {
+                        this.manager = String(manager.name);
+                    }
+
+                    // this.manager = String(manager);
                 }
 
                 displayInfo()
@@ -160,7 +164,7 @@
 
             class Manager extends Employee
             {
-                constructor(name, age, dateOfBirth, salary, department, developers)
+                constructor(name, age, dateOfBirth, salary, department, developers = [])
                 {
                     super(name, age, dateOfBirth, salary, department);
                     this.developers = developers;
@@ -168,13 +172,23 @@
 
                 addDeveloper(developer)
                 {
-                    this.developers.push(developer);
+                    if (developer instanceof Developer) {
+                        this.developers.push(developer.name);
+                    }
+
+                    //this.developers.push(developer);
                 }
 
                 removeDeveloper(developer)
                 {
-                    let dev_arr = this.developers.filter( function(dvlpr){ return dvlpr != developer; } );
-                    this.developers = dev_arr;
+                    if (developer instanceof Developer)
+                    {
+                        let dev_arr = this.developers.filter( function(dvlpr){ return dvlpr != developer.name; } );
+                        this.developers = dev_arr;
+                    }
+                    
+                    // let dev_arr = this.developers.filter( function(dvlpr){ return dvlpr != developer; } );
+                    // this.developers = dev_arr;
                 }
 
                 displayInfo()
@@ -188,31 +202,47 @@
             console.log(person1);
             person1.displayInfo();
             */
-
-            let person2 = new Manager('Вася', 28, "15.11.1985", 50000, 'управление персоналом', ['Вова', 'Юра', 'Петя']);
-            console.log('new Manager');
-            console.log(person2);
-            person2.displayInfo();
+           
+           console.log('----------new Developer----------');
+            let kate = new Developer('Kate'/*, 28, "10.01.1995", 100000, 'разработка', 'Вася'*/);
+            console.log(kate);
+            kate.displayInfo();
+            let vova = new Developer('Вова');
+            let kolya = new Developer('Коля');
+            let jura = new Developer('Юра');
+            let petya = new Developer('Петя');
             
-            person2.addDeveloper('Коля');
-            console.log('addDeveloper');
-            console.log(person2);
-            person2.displayInfo();
+            console.log('----------changeManager----------');
+            // kate.changeManager('Другой Вася');
+            let another_bob = new Manager('Другой Вася')
+            kate.changeManager(another_bob);
+            console.log(kate);
+            kate.displayInfo();
 
-            person2.removeDeveloper('Юра');
-            console.log('removeDeveloper');
-            console.log(person2);
-            person2.displayInfo();
-
-            let dev1 = new Developer('Kate', 28, "10.01.1995", 100000, 'разработка', 'Вася');
-            console.log(dev1);
-            dev1.displayInfo();
-            dev1.changeManager('Другой Вася');
-            console.log('changeManager');
-            console.log(dev1);
-            dev1.displayInfo();
+            console.log('----------new Manager----------');
+            let bob  = new Manager('Вася'/*, 28, "15.11.1985", 50000, 'управление персоналом', ['Вова', 'Юра', 'Петя']*/);
+            console.log(bob);
+            bob.displayInfo();
             
+            // console.log('----------addDeveloper----------');
+            // bob.addDeveloper('Коля');
+            // console.log(bob);
+            // bob.displayInfo();
 
+            console.log('----------addDeveloper----------');
+            bob.addDeveloper(kate);
+            bob.addDeveloper(vova);
+            bob.addDeveloper(kolya);
+            bob.addDeveloper(jura);
+            bob.addDeveloper(petya);
+            console.log(bob);
+            bob.displayInfo();
+
+            console.log('----------removeDeveloper----------');
+            bob.removeDeveloper(kate);
+            bob.removeDeveloper(jura);
+            console.log(bob);
+            bob.displayInfo();
         }
 
         // 4. *При помощи генератора написать функцию-анкету, которая запрашивает у пользователя на ввод параметры и передает их в генератор. В конце, когда генератор завершается, он должен вернуть все введенные входные параметры в виде объекта. Этот объект нужно вывести в консоли.
