@@ -23,7 +23,7 @@
                     console.log('callback not a function');
                 }
             };
-            loop(times, callback);
+            // loop(times, callback);
         }
 
         // 2. Написать функцию calculateArea, которая будет принимать параметры для вычисления площади (можете выбрать конкретную фигуру или, основываясь на переданных параметрах, выполнять требуемый алгоритм вычисления площади для переданной в параметрах фигуры) и возвращать объект вида: { area, figure, input } (где area – вычисленная площадь, figure – название фигуры, для которой вычислялась площадь, input – входные параметры, по которым было произведено вычисление.
@@ -101,15 +101,10 @@
         {
             class Human
             {
-                //String(value)
-                //Number(value)
                 constructor(name, age, dateOfBirth)
                 {
                     this.name = String(name);
-                    //this.name = name.toString();
                     this.age = Number(age);
-                    //this.age = parseInt(age);
-                    //this.dateOfBirth = dateOfBirth;
                     this.dateOfBirth = String(dateOfBirth);
                 }
 
@@ -197,11 +192,6 @@
                     console.log('developers:', this.developers);
                 }
             }
-
-            /* let person1 = new Employee('Kate', 28, "10.01.1995", 100000, 'разработка');
-            console.log(person1);
-            person1.displayInfo();
-            */
            
            console.log('----------new Developer----------');
             let kate = new Developer('Kate'/*, 28, "10.01.1995", 100000, 'разработка', 'Вася'*/);
@@ -223,11 +213,6 @@
             let bob  = new Manager('Вася'/*, 28, "15.11.1985", 50000, 'управление персоналом', ['Вова', 'Юра', 'Петя']*/);
             console.log(bob);
             bob.displayInfo();
-            
-            // console.log('----------addDeveloper----------');
-            // bob.addDeveloper('Коля');
-            // console.log(bob);
-            // bob.displayInfo();
 
             console.log('----------addDeveloper----------');
             bob.addDeveloper(kate);
