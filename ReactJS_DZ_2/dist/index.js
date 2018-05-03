@@ -902,6 +902,8 @@ exports.message = message;
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
 
+current_date();
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19552,18 +19554,15 @@ module.exports = camelize;
 "use strict";
 
 
-module.exports;
-{
-
-	window.onload = function () {
-
-		var now = new Date();
-		var getData = document.getElementById('getData');
-		getData.addEventListener("click", function () {
-			alert(now);console.log(now);
-		});
-	};
-}
+module.exports = function () {
+	var now = new Date();
+	var getData = document.getElementById('getData');
+	getData.async = false;
+	getData.addEventListener("click", function () {
+		alert(now);
+		console.log(now);
+	});
+};
 
 /***/ }),
 /* 26 */
