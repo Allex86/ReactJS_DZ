@@ -48,10 +48,3 @@
         border-top:0 none;
     }
 }
-
-/*
-Alert modal window
- */
-.modal-open .modal {
-    background: none;
-}

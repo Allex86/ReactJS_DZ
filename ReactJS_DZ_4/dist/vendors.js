@@ -53,6 +53,8 @@
 
 	__webpack_require__(203);
 
+	__webpack_require__(211);
+
 	__webpack_require__(205);
 
 	__webpack_require__(208);
@@ -525,7 +527,7 @@
 
 
 	// module
-	exports.push([module.id, "#login-dp{\n    min-width: 250px;\n    padding: 14px 14px 0;\n    overflow:hidden;\n    background-color:rgba(255,255,255,.8);\n}\n#login-dp .help-block{\n    font-size:12px    \n}\n#login-dp .bottom{\n    background-color:rgba(255,255,255,.8);\n    border-top:1px solid #ddd;\n    clear:both;\n    padding:14px;\n}\n#login-dp .social-buttons{\n    margin:12px 0    \n}\n#login-dp .social-buttons a{\n    width: 49%;\n}\n#login-dp .form-group {\n    margin-bottom: 10px;\n}\n.btn-fb{\n    color: #fff;\n    background-color:#3b5998;\n}\n.btn-fb:hover{\n    color: #fff;\n    background-color:#496ebc \n}\n.btn-tw{\n    color: #fff;\n    background-color:#55acee;\n}\n.btn-tw:hover{\n    color: #fff;\n    background-color:#59b5fa;\n}\n@media(max-width:768px){\n    #login-dp{\n        background-color: inherit;\n        color: #fff;\n    }\n    #login-dp .bottom{\n        background-color: inherit;\n        border-top:0 none;\n    }\n}\n\n/*\nAlert modal window\n */\n.modal-open .modal {\n    background: none;\n}", ""]);
+	exports.push([module.id, "#login-dp{\n    min-width: 250px;\n    padding: 14px 14px 0;\n    overflow:hidden;\n    background-color:rgba(255,255,255,.8);\n}\n#login-dp .help-block{\n    font-size:12px    \n}\n#login-dp .bottom{\n    background-color:rgba(255,255,255,.8);\n    border-top:1px solid #ddd;\n    clear:both;\n    padding:14px;\n}\n#login-dp .social-buttons{\n    margin:12px 0    \n}\n#login-dp .social-buttons a{\n    width: 49%;\n}\n#login-dp .form-group {\n    margin-bottom: 10px;\n}\n.btn-fb{\n    color: #fff;\n    background-color:#3b5998;\n}\n.btn-fb:hover{\n    color: #fff;\n    background-color:#496ebc \n}\n.btn-tw{\n    color: #fff;\n    background-color:#55acee;\n}\n.btn-tw:hover{\n    color: #fff;\n    background-color:#59b5fa;\n}\n@media(max-width:768px){\n    #login-dp{\n        background-color: inherit;\n        color: #fff;\n    }\n    #login-dp .bottom{\n        background-color: inherit;\n        border-top:0 none;\n    }\n}", ""]);
 
 	// exports
 
@@ -604,6 +606,48 @@
 	    $('#myModal').modal('show');
 	  }, 1000 /*	3000 */);
 	});
+
+/***/ }),
+
+/***/ 211:
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(212);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(200)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../node_modules/css-loader/index.js!./Alert_modal_window.css", function() {
+				var newContent = require("!!../../../node_modules/css-loader/index.js!./Alert_modal_window.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+
+/***/ 212:
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(194)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "/*\nAlert modal window\n */\n.modal-open .modal {\n    background: none;\n}\n\n.modal {\n    border: none;\n}", ""]);
+
+	// exports
+
 
 /***/ })
 
