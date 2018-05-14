@@ -3,9 +3,6 @@ import {Link} from 'react-router';
 
 export default class User extends Component {
     render() {
-
-        let show_posts = `https://jsonplaceholder.typicode.com/posts?userId=${this.props.id}`;
-        
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
@@ -18,7 +15,7 @@ export default class User extends Component {
                     <p>{this.props.email}</p>
                     <p>{this.props.phone}</p>
                     <p>{this.props.website}</p>
-                    <Link to={show_posts}>Show Posts</Link>
+                    <Link to={`https://jsonplaceholder.typicode.com/posts?userId=${this.props.id}`}>Show Posts</Link>
                 </div>
             </div>
         );

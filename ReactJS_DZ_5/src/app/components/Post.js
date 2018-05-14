@@ -3,9 +3,6 @@ import {Link} from 'react-router';
 
 export default class Post extends Component {
     render() {
-
-        let show_comments = `https://jsonplaceholder.typicode.com/comments?postId=${this.props.id}`;
-
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
@@ -16,7 +13,7 @@ export default class Post extends Component {
                 <div className="panel-body">
                     <p>{this.props.body}</p>
                     <p>UserId: {this.props.userId}</p>
-                    <Link to={show_comments}>Show Comments</Link>
+                    <Link to={`https://jsonplaceholder.typicode.com/comments?postId=${this.props.id}`}>Show Comments</Link>
                 </div>
             </div>
         );
