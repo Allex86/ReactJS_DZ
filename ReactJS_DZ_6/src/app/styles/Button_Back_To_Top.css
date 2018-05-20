@@ -1,0 +1,14 @@
+/*
+Button Back To Top
+ */
+
+.button_back_to_top {
+    width: 60px;
+    height: 60px;
+}
+
+#back-top {
+    position: fixed;
+    bottom: 75px;
+    right: 0;
+}
