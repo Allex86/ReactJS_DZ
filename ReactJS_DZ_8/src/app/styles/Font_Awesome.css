@@ -1,0 +1,9 @@
+/*
+fa-spinner
+ */
+
+.fa-spinner, .fa-cog {
+	display: block;
+	margin: 10px auto;
+	font-size: 100px;
+}

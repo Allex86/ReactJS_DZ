@@ -1,0 +1,10 @@
+/*
+Alert modal window
+ */
+.modal-open .modal {
+    background: none;
+}
+
+.modal {
+    border: none;
+}
